@@ -1,0 +1,18 @@
+﻿@using QuanLyBanSach_Web.Models.Data;
+@model  List<NhaXuatBan>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/LayOut/NguoiDungLayOut.cshtml";
+}
+@section NoiDungChuDe{
+@foreach (var Item in Model)
+{
+    <ul class="mnboxl">
+        <li><a href="">@Item.TenNXB</a></li>
+    </ul>
+}
+    <li><a href="@Url.Action("ChuDe")">Thu Gọn...</a></li>
+}
+

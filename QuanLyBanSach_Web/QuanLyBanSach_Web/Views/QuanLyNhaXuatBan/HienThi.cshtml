@@ -1,0 +1,48 @@
+﻿@model QuanLyBanSach_Web.Models.Data.NhaXuatBan
+
+@{
+    ViewBag.Title = "HienThi";
+    Layout = "~/Views/LayOut/AdminLayOut.cshtml";
+}
+
+<h2>Nhà Xuất Bản</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaNXB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaNXB)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TenNXB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenNXB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaChi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh Sửa", "ChinhSuaNXB", new { @MaNXB = Model.MaNXB }, new { @class = "btn btn-info" })
+    @Html.ActionLink("Trở Về", "Index", null, new { @class = "btn btn-danger" })
+</p>

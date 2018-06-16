@@ -1,0 +1,35 @@
+﻿
+@using QuanLyBanSach_Web.Models.Data;
+@model  List<TacGia>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/LayOut/NguoiDungLayOut.cshtml";
+}
+<style>
+    .col-xs-12 col-sm-8 col-md-9{
+        display : none;
+    }
+    .banner clearfix{
+        display:none;
+    }
+    .boxleft hidden-xs{
+        display:none;
+    }
+    #SachHot{
+        display:none
+    }
+    #sachbanchay{
+        display:none;
+    }
+    #maincontent{
+        display:none;
+    }
+</style>
+ @foreach (var Item in Model)
+{
+        <ul class="mnboxl">
+            <li><a href="">@Item.TenTG</a></li>
+        </ul>
+}
+

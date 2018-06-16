@@ -1,0 +1,10 @@
+﻿@using QuanLyBanSach_Web.Models.Data;
+@model List<ChuDe>
+
+@foreach (var item in Model)
+{
+    <ul class="mnboxl">
+        <li><a href="">@item.TenChuDe</a></li>        
+    </ul>
+}
+<li><a href="@Url.Action("DanhMucChuDe")">Xem Thêm...</a></li>

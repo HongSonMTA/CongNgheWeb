@@ -1,0 +1,58 @@
+﻿@model QuanLyBanSach_Web.Models.Data.TacGia
+
+@{
+    ViewBag.Title = "HienThi";
+    Layout = "~/Views/LayOut/AdminLayOut.cshtml";
+}
+
+<h2>HienThi</h2>
+
+<div>
+    <h4>TacGia</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaTG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaTG)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TenTG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenTG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaChi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TieuSu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TieuSu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh Sửa", "ChinhSuaNXB", new { @MaNXB = Model.MaNXB }, new { @class = "btn btn-info" })
+    @Html.ActionLink("Trở Về", "Index", null, new { @class = "btn btn-danger" })
+</p>

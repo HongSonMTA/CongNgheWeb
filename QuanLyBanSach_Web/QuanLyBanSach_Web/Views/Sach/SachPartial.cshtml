@@ -1,0 +1,30 @@
+﻿@using QuanLyBanSach_Web.Models.Data;
+@*Định nghĩa kiểu dữ liệu cho biến Model*@
+@model List<Sach>
+
+@{
+    foreach (var item in Model)
+    {
+
+        <div class="boxspl">
+            <div class="col-xs-4 p0">
+                <img src="@Url.Content("~/AnhBia/"+item.AnhBia)" width="50" height="80" alt="Image">
+            </div>
+            <div class="col-xs-8 p5">
+                <div class="tit-boxspl">
+                    @if (item.TenSach.Length > 30)
+                    {
+                        <p><strong title="@item.TenSach">Tiêu đề: @item.TenSach.Substring(0, 30)...</strong><br /><a href="@Url.Action("ChiTietSach", new { @Masach=item.MaSach })">Xem chi tiết</a></p>
+                    }
+                    else
+                    {
+                        <p><strong title="@item.TenSach">Tiêu đề: @item.TenSach</strong><br /><a href="@Url.Action("ChiTietSach", new { @Masach=item.MaSach })">Xem chi tiết</a></p>
+                        <div class="clear"></div>
+                    }
+                </div>
+                <div class="price-boxspl">@item.GiaBan VNĐ</div>
+            </div>
+        </div>
+    }
+}
+

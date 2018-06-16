@@ -1,0 +1,47 @@
+﻿@using PagedList.Mvc
+@using PagedList
+
+@model PagedList<QuanLyBanSach_Web.Models.Data.ChuDe>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/LayOut/AdminLayOut.cshtml";
+}
+
+<h2>Danh Sách Chủ Đề</h2>
+
+<p>
+    @Html.ActionLink("Thêm Mới Sách", "ThemMoichude", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().MaChuDe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().TenChuDe)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaChuDe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenChuDe)
+        </td>
+        <td>
+            @Html.ActionLink("Chỉnh Sửa", "ChinhSuachude", new { @machude = item.MaChuDe }, new { @class = "btn btn-info" })
+            @Html.ActionLink("Hiển Thị", "HienThi", new { @machude = item.MaChuDe }, new { @class = "btn btn-warning" })
+            @Html.ActionLink("Xóa", "Xoa", new { @machude = item.MaChuDe }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+</table>
+
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/ @Model.PageCount
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+</div>

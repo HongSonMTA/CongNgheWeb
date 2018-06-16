@@ -1,0 +1,12 @@
+﻿@using QuanLyBanSach_Web.Models.Data;
+@model List<TacGia>
+
+@foreach (var Item in Model)
+{
+    <ul class="mnboxl">
+        <li><a href="">@Item.TenTG</a></li>
+    </ul>
+}
+<li><a href="@Url.Action("DanhSachTacGia")">Xem Thêm...</a></li>
+<div style="clear:both"></div>
+

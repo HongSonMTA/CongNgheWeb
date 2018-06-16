@@ -1,0 +1,54 @@
+﻿@model QuanLyBanSach_Web.Models.Data.TacGia
+
+@{
+    ViewBag.Title = "Xoa";
+    Layout = "~/Views/LayOut/AdminLayOut.cshtml";
+}
+
+
+<h3>Bạn Có Chắc Chắn Muốn Xóa Tác Giả Này</h3>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenTG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenTG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaChi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TieuSu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TieuSu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value=" Xóa " class="btn btn-primary" />
+            @Html.ActionLink("Trở Về", "Index", null, new { @class = "btn btn-danger" })
+        </div>
+    }
+</div>

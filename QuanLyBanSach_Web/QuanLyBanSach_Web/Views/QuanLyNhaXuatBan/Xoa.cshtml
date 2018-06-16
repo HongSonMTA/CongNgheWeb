@@ -1,0 +1,52 @@
+﻿@model QuanLyBanSach_Web.Models.Data.NhaXuatBan
+
+@{
+    ViewBag.Title = "Xoa";
+    Layout = "~/Views/LayOut/AdminLayOut.cshtml";
+}
+
+<h3>Bạn Có Chắc Chắn Muốn Xóa Nhà Xuất Bản Này</h3>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaNXB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaNXB)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TenNXB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenNXB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaChi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value=" Xóa " class="btn btn-primary" />
+            @Html.ActionLink("Trở Về", "Index", null, new { @class = "btn btn-danger" })
+        </div>
+    }
+</div>

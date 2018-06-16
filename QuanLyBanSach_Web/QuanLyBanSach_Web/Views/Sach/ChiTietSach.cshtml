@@ -1,0 +1,36 @@
+﻿@using QuanLyBanSach_Web.Models.Data;
+@model Sach
+@{
+    ViewBag.Title = "ChiTietSach";
+    Layout = "~/Views/LayOut/NguoiDungLayOut.cshtml";
+}
+
+<style>
+    #featured{
+        display:none;
+    }
+</style>
+<div id="ThongTin">
+    <div id="HinhAnh">
+        <img src="@Url.Content("~/AnhBia/"+Model.AnhBia)" />
+    </div>
+    @*Thông tin*@
+        <div id="TenSach">@Model.TenSach</div>
+        <div id="ChuDe">Chủ đề: @ViewBag.TenChuDe</div>
+        <div id="NhaXuatBan">Nhà xuất bản: @ViewBag.NhaXuatBan</div>
+        <div id="Mota">Nội dung tóm tắt:<br />- @Model.MoTa <br /></div>
+        @*Dịch dấu chấm động đơn giá sử dụng string.Format("{0:0,0}", tham số)*@
+        <div id="Gia"><span style="color: green; font-weight: normal;">Đơn giá:</span><br /><span id="Gia"> @string.Format("{0:0,0}", @Model.GiaBan) VNĐ</span></div>
+        <br />
+        @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMaSach = Model.MaSach, @strURL = Request.Url.ToString() }))
+        {
+            <input type="submit" style="cursor:pointer" value="Mua hàng &#xf07a;" id="btnGioHang" class="count_products_cart">
+        }
+</div>
+    <style>
+        #HinhAnh {
+            float : left;
+            width: 50px;
+            height: 100px;
+        }
+    </style>

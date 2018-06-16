@@ -1,0 +1,37 @@
+﻿@model QuanLyBanSach_Web.Models.Data.ChuDe
+
+@{
+    ViewBag.Title = "Xoa";
+    Layout = "~/Views/LayOut/AdminLayOut.cshtml";
+}
+
+<h3>Bạn Có Chắc Chắn Muốn Xóa Chủ Đề Này</h3>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaChuDe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaChuDe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenChuDe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenChuDe)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value=" Xóa " class="btn btn-primary" /> 
+            @Html.ActionLink("Trở Về", "Index", null, new { @class = "btn btn-danger" })
+        </div>
+    }
+</div>

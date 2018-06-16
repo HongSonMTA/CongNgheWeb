@@ -1,0 +1,23 @@
+﻿@using QuanLyBanSach_Web.Models.Data;
+@*Định nghĩa kiểu dữ liệu cho biến Model*@
+@model List<Sach>
+
+
+@foreach (var Item in Model)
+{
+        <div class="item">
+            <div class="boxsp">
+                <div class="imgsp">
+                    <a href=""><img class="imgproduct" src="@Url.Content("~/AnhBia/"+Item.AnhBia)"></a>
+                </div>
+                <div class="namesp">
+                    <a href="">@Item.TenSach</a>
+                </div>
+                <div class="pricesp">@Item.GiaBan VNĐ</div>
+                <div class="button-hd">
+                    <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                    <a href=""><i class="fa fa-eye" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+        }

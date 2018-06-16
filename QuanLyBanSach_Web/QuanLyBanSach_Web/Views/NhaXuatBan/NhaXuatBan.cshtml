@@ -1,0 +1,13 @@
+﻿@using QuanLyBanSach_Web.Models.Data;
+@model List<NhaXuatBan>
+
+
+    @foreach (var Item in Model)
+    {
+        <ul class="mnboxl">
+            <li><a href="">@Item.TenNXB</a></li>
+        </ul>
+    }
+
+    <li><a href="@Url.Action("DanhMucNXB")">Xem Thêm...</a></li>
+    <div style="clear:both"></div>

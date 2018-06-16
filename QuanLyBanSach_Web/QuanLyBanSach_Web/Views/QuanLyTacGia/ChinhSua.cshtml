@@ -1,0 +1,64 @@
+﻿@model QuanLyBanSach_Web.Models.Data.TacGia
+
+@{
+    ViewBag.Title = "ChinhSua";
+    Layout = "~/Views/LayOut/AdminLayOut.cshtml";
+}
+
+<h2>Chỉnh Sửa Tác Giả </h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.MaTG)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaTG, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <span style="font-size:15pt;margin-top:2px;margin-left:5px">@Model.MaTG</span>
+                @Html.Hidden("MaTG", Model.MaTG)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.TenTG, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TenTG, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TenTG, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DiaChi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DiaChi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TieuSu, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TieuSu, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TieuSu, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SDT, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Lưu" class="btn btn-primary" />
+                @Html.ActionLink("Trở Về", "Index", null, new { @class = "btn btn-danger" })
+            </div>
+        </div>
+    </div>
+}

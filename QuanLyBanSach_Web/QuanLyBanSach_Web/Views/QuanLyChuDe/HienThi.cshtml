@@ -1,0 +1,31 @@
+﻿@model QuanLyBanSach_Web.Models.Data.ChuDe
+
+@{
+    ViewBag.Title = "HienThi";
+    Layout = "~/Views/LayOut/AdminLayOut.cshtml";
+}
+
+<h2> Chủ Đề </h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaChuDe)
+        </dt>
+        <dd>
+             @Html.DisplayFor(model => model.MaChuDe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenChuDe)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TenChuDe)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh Sửa", "ChinhSuachude", new { @MaChuDe = Model.MaChuDe }, new { @class = "btn btn-info" })
+    @Html.ActionLink("Trở Về", "Index", null, new { @class = "btn btn-danger" })
+</p>

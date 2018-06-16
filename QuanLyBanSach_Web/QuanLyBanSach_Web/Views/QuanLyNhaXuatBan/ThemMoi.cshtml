@@ -1,0 +1,63 @@
+﻿@model QuanLyBanSach_Web.Models.Data.NhaXuatBan
+
+@{
+    ViewBag.Title = "ThemMoi";
+    Layout = "~/Views/LayOut/AdminLayOut.cshtml";
+}
+<h2> Thêm Mới Nhà Xuất Bản </h2>
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.TenNXB, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TenNXB, new { htmlAttributes = new { @class = "form-control", placeholder ="Nhập Tên NXB...." }  })
+                @Html.ValidationMessageFor(model => model.TenNXB, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DiaChi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DiaChi, new { htmlAttributes = new { @class = "form-control", placeholder = "Nhập Địa Chỉ NXB...." } })
+                @Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SDT, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control", placeholder = "Nhập SĐT NXB...." } })
+                @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Thêm Mới" class="btn btn-primary" />
+                @Html.ActionLink("Trở Về", "Index",null, new { @class = "btn btn-warning" })
+            </div>
+        </div>
+    </div>
+}
+<style>
+    #TenNXB{
+        height:35px;
+        width : 300px;
+        border: 1px solid ;
+    }
+    #DiaChi{
+        height:35px;
+        width : 300px;
+        border: 1px solid ;
+    }
+    #SDT{
+        height:35px;
+        width : 300px;
+        border: 1px solid ;
+    }
+</style>
