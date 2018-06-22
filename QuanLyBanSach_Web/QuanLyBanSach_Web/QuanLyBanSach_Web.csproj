@@ -376,6 +376,8 @@
     <Content Include="Views\QuanLyTacGia\ChinhSua.cshtml" />
     <Content Include="Views\QuanLyTacGia\HienThi.cshtml" />
     <Content Include="Views\QuanLyTacGia\Xoa.cshtml" />
+    <Content Include="Views\KhachHang\DangKy.cshtml" />
+    <Content Include="Views\KhachHang\DangNhap.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -386,7 +388,6 @@
     <Folder Include="Content\NguoiDung\js\" />
     <Folder Include="Content\NguoiDung\lib\" />
     <Folder Include="tinymce\" />
-    <Folder Include="Views\KhachHang\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

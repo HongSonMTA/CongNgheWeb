@@ -1,4 +1,5 @@
 ﻿CREATE DATABASE QuanLyBanSach
+go
 USE QuanLyBanSach
 GO
 CREATE TABLE KhachHang(
@@ -11,16 +12,19 @@ GioiTinh NVARCHAR(5) CHECK (GioiTinh IN (N'Nam',N'Nữ')),
 SDT VARCHAR(15),
 NgaySinh DATE 
 )
+go
 CREATE TABLE ChuDe(
 MaChuDe INT PRIMARY KEY,
 TenChuDe NVARCHAR(50)
 )
+go
 CREATE TABLE NhaXuatBan(
 MaNXB INT PRIMARY KEY,
 TenNXB NVARCHAR(50),
 DiaChi NVARCHAR(200),
 SDT VARCHAR(15)
 )
+go
 CREATE TABLE TacGia (
 MaTG INT PRIMARY KEY,
 TenTG NVARCHAR(50),
@@ -28,6 +32,7 @@ DiaChi NVARCHAR(200),
 TieuSu NVARCHAR(MaX),
 SDT VARCHAR(15)
 )
+go
 CREATE TABLE Sach(
 MaSach INT PRIMARY KEY,
 TenSach NVARCHAR(50),
@@ -39,6 +44,7 @@ SoLuongTon INT,
 MaNXB INT REFERENCES dbo.NhaXuatBan(MaNXB),
 MaChuDe INT REFERENCES dbo.ChuDe(MaChuDe) 
 )
+go
 CREATE TABLE ChiTietTacGia (
 MaTG INT REFERENCES dbo.TacGia(MaTG),
 MaSach INT REFERENCES dbo.Sach(MaSach),
@@ -46,6 +52,7 @@ VaiTro NVARCHAR(50) ,
 ViTri NVARCHAR(50),
 PRIMARY KEY (MaTG,MaSach)
 )
+go
 CREATE TABLE DonHang(
 MaDH INT PRIMARY KEY,
 DaThanhToan INT,
@@ -54,6 +61,7 @@ NgayDat DATE,
 NgayGiao DATE,
 MaKH INT REFERENCES dbo.KhachHang(MaKH)
 )
+go
 CREATE TABLE ChiTietDonHang(
 MaDH INT REFERENCES dbo.DonHang(MaDH),
 MaSach INT REFERENCES dbo.Sach(MaSach),
@@ -61,3 +69,4 @@ SoLuong INT,
 DonGia INT, 
 PRIMARY KEY (MaDH,MaSach)
 )
+go

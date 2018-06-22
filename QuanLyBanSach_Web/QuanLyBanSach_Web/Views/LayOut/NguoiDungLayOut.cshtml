@@ -78,32 +78,9 @@
         <nav id="mainmenu" class="hidden-xs hidden-sm ">
             <div class="container">
                 <ul class="x1">
-                    <li><a href="">Trang chủ</a></li>
+                    <li><a href="@Url.Action("Index","Home")">Trang chủ</a></li>
                     <li>
-                        <a href="">Sách</a>
-                        <i class="fa fa-caret-down" aria-hidden="true"></i>
-                        <ul class="drop2">
-                            <li>
-                                <a href="">Phụ kiện Iphone</a>
-                                <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                <ul class="drop3">
-                                    <li><a href="">Linh kiện Iphone</a></li>
-                                    <li>
-                                        <a href="">Phụ kiện Iphone</a>
-                                        <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                        <ul class="drop4">
-                                            <li><a href="">Củ sặc Iphone</a></li>
-                                            <li><a href="">Cáp sặc Iphone</a></li>
-                                            <li><a href="">Phụ kiện Ipad</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="">Phụ kiện Ipad</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="">Phụ kiện Samsung</a></li>
-                            <li><a href="">Phụ kiện LG-HTC</a></li>
-                            <li><a href="">Phụ kiện Nokia-Sky</a></li>
-                        </ul>
+                        <a href="">Sách</a>                     
                     </li>
                     <li><a href="">Giới thiệu</a></li>
                     <li><a href="">Tin tức</a></li>
@@ -113,6 +90,7 @@
             </div>
         </nav>
     </header>
+    @RenderBody()
     <div id="home">
         <div class="container">
             <section id="featured">
@@ -159,15 +137,6 @@
                             <span>Sách bán chạy</span>
                         </div>
                                   @Html.Action("SachPartial", "Sach", new { @TrangThai = 3 })
-                    </div>
-                    <div class="boxleft hidden-xs">
-                        <div class="titboxl">
-                            <i class="fa fa-bars fa-x2 fa-lg" aria-hidden="true"></i>
-                            <span> Tác Giả </span>
-                        </div>
-                        <div class="ctboxleft">
-                            @Html.Action("TacGia", "TacGia")
-                        </div>
                     </div>
                     <div class="boxleft hidden-xs">
                             <div class="titboxl">
@@ -229,8 +198,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                @RenderBody()
+                </div>             
 </section>
     </div>
     </div>

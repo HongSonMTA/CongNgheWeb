@@ -11,6 +11,8 @@ namespace QuanLyBanSach_Web.Controllers
 {
     public class QuanLySachController : Controller
     {
+        
+
         // GET: QuanLySach
         KetNoi kn = new KetNoi();
         public ActionResult Index(int? page)

@@ -8,7 +8,7 @@ namespace QuanLyBanSach_Web.Models.Data
     public partial class KetNoi : DbContext
     {
         public KetNoi()
-            : base("name=KetNoi")
+            : base("name=KetNoi1")
         {
         }
 
