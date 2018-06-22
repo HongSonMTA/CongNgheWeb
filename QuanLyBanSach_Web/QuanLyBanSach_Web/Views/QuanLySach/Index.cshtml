@@ -72,9 +72,9 @@
             @Html.DisplayFor(modelItem => item.ChuDe.TenChuDe)
         </td>
         <td>
-            @Html.ActionLink("Chỉnh Sửa", "ChinhSua", new { id=item.MaSach },new {@class = "btn btn-info" }) 
-            @Html.ActionLink("Hiển Thị", "HienThi", new { id=item.MaSach }, new { @class = "btn btn-warning" }) 
-            @Html.ActionLink("Xóa", "Xoa", new { id=item.MaSach }, new { @class = "btn btn-danger" })
+            @Html.ActionLink("Chỉnh Sửa", "ChinhSua", new { @MaSach = item.MaSach },new {@class = "btn btn-info" }) 
+            @Html.ActionLink("Hiển Thị", "HienThi", new { @MaSach = item.MaSach }, new { @class = "btn btn-warning" }) 
+            @Html.ActionLink("Xóa", "Xoa", new { @MaSach = item.MaSach }, new { @class = "btn btn-danger" })
         </td>
     </tr>
 }

@@ -6,34 +6,72 @@
 }
 
 <style>
-    #featured{
-        display:none;
-    }
     #home{
         display:none;
     }
 </style>
-<div id="ThongTin">
-    <div id="HinhAnh">
-        <img src="@Url.Content("~/AnhBia/"+Model.AnhBia)" />
+<div>
+    <div id="ThongTin">
+        <div class="HinhAnh col-sm-6">
+            <img src="~/AnhBia/@Model.AnhBia">
+        </div>
+        <div class="ThongTinChiTiet col-sm-6">
+            <h1>@Model.TenSach</h1>
+            <h3>Chủ Đề : @Model.ChuDe.TenChuDe</h3>
+            <h3>Nhà Xuất Bản : @Model.NhaXuatBan.TenNXB</h3>
+            <div class="price-boxspl"> Giá Bán : @Model.GiaBan VNĐ</div>
+            <button class="btn btn-danger" title="Mua Hàng">
+                <span>Mua Hàng </span>
+            </button>
+        </div>
     </div>
-    @*Thông tin*@
-        <div id="TenSach">@Model.TenSach</div>
-        <div id="ChuDe">Chủ đề: @ViewBag.TenChuDe</div>
-        <div id="NhaXuatBan">Nhà xuất bản: @ViewBag.NhaXuatBan</div>
-        <div id="Mota">Nội dung tóm tắt:<br />- @Model.MoTa <br /></div>
-        @*Dịch dấu chấm động đơn giá sử dụng string.Format("{0:0,0}", tham số)*@
-        <div id="Gia"><span style="color: green; font-weight: normal;">Đơn giá:</span><br /><span id="Gia"> @string.Format("{0:0,0}", @Model.GiaBan) VNĐ</span></div>
-        <br />
-        @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMaSach = Model.MaSach, @strURL = Request.Url.ToString() }))
-        {
-            <input type="submit" style="cursor:pointer" value="Mua hàng &#xf07a;" id="btnGioHang" class="count_products_cart">
-        }
+    <div>
+        <div>
+
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="messages-tab" data-toggle="tab" href="#messages" role="tab" aria-controls="messages" aria-selected="false">Messages</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="settings-tab" data-toggle="tab" href="#settings" role="tab" aria-controls="settings" aria-selected="false">Settings</a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
+                <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+                <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">...</div>
+                <div class="tab-pane" id="settings" role="tabpanel" aria-labelledby="settings-tab">...</div>
+            </div>
+
+            <script>
+                $(function () {
+                    $('#myTab li:last-child a').tab('show')
+                })
+            </script>
+    </div>
+
+    </div>
 </div>
     <style>
-        #HinhAnh {
-            float : left;
-            width: 50px;
-            height: 100px;
+        #ThongTin{
+            padding-left: 10%;
+            padding-top : 5%;
+            width : 100%;
+           height: 700px;
+        }
+        .ThongTinChiTiet{
+            width : 400px;
+            height: 400px
+        }
+        .HinhAnh{
+            width: 250px;
+            height:450px;
         }
     </style>

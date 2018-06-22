@@ -378,6 +378,7 @@
     <Content Include="Views\QuanLyTacGia\Xoa.cshtml" />
     <Content Include="Views\KhachHang\DangKy.cshtml" />
     <Content Include="Views\KhachHang\DangNhap.cshtml" />
+    <Content Include="Views\QuanLySach\ChinhSua.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
