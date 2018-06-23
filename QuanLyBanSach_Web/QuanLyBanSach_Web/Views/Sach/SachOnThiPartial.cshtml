@@ -7,15 +7,15 @@
     <div class="item">
         <div class="boxsp">
             <div class="imgsp">
-                <a href=""><img class="imgproduct" src="@Url.Content("~/AnhBia/"+Item.AnhBia)"></a>
+                <a href="@Url.Action("ChiTietSach", new { @Masach=Item.MaSach })"><img class="imgproduct" src="@Url.Content("~/AnhBia/"+Item.AnhBia)"></a>
             </div>
             <div class="namesp">
                 <a href="">@Item.TenSach</a>
             </div>
             <div class="pricesp">@Item.GiaBan VNĐ</div>
             <div class="button-hd">
-                <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-                <a href=""><i class="fa fa-eye" aria-hidden="true"></i></a>
+                <a href="@Url.Action("ThemGioHang", "GioHang", new { @MaSP = Item.MaSach, @strUrl = Request.Url.ToString() })"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                <a href="@Url.Action("ChiTietSach", new { @Masach=Item.MaSach })"><i class="fa fa-eye" aria-hidden="true"></i></a>
             </div>
         </div>
     </div>

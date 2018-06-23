@@ -31,7 +31,12 @@
 
             <td>@item.sTenSach</td>
 
-            <td><a href="@Url.Action("ChiTietSach", "Sach", new { @MaSach = item.iMaSach})"><img src="@Url.Content("~/AnhBia/"+item.sAnhBia)" width="50" height="50" /></a></td>
+            <td>
+                <div id="HinhAnh"><a href="@Url.Action("ChiTietSach", "Sach", new { @MaSach = item.iMaSach})">
+                        <img src="@Url.Content("~/AnhBia/"+item.sAnhBia)" />
+                </a>
+                </div>
+            </td>
 
             <td>
                 @String.Format("{0:0,0}", item.dDonGia) VNĐ
@@ -63,6 +68,9 @@
 </table>
 @*Css giỏ hàng*@
 <style>
+    #home{
+        display:none;
+    }
     #divGioHang {
         border: 1px solid #EEEEEE;
         margin-left: 10%;
@@ -72,5 +80,9 @@
             padding: 10px;
             border: 1px solid #EEEEEE;
         }
+       #HinhAnh{
+           width: 50px;
+           height:100px;
+       }
 </style>
 
