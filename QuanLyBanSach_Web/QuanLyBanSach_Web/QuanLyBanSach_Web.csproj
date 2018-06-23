@@ -206,6 +206,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\ChuDeController.cs" />
+    <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KhachHangController.cs" />
     <Compile Include="Controllers\NhaXuatBanController.cs" />
@@ -223,6 +224,7 @@
     <Compile Include="Models\Data\ChiTietTacGia.cs" />
     <Compile Include="Models\Data\ChuDe.cs" />
     <Compile Include="Models\Data\DonHang.cs" />
+    <Compile Include="Models\Data\GioHang.cs" />
     <Compile Include="Models\Data\KetNoi.cs" />
     <Compile Include="Models\Data\KhachHang.cs" />
     <Compile Include="Models\Data\NhaXuatBan.cs" />
@@ -231,6 +233,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Metadata\ChuDe.Metadata.cs" />
+    <Compile Include="Models\Metadata\KhachHang.Metadata.cs" />
     <Compile Include="Models\Metadata\NhaXuatBan.Metadata.cs" />
     <Compile Include="Models\Metadata\Sach.Metadata.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -379,6 +382,7 @@
     <Content Include="Views\KhachHang\DangKy.cshtml" />
     <Content Include="Views\KhachHang\DangNhap.cshtml" />
     <Content Include="Views\QuanLySach\ChinhSua.cshtml" />
+    <Content Include="Views\GioHang\GioHang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

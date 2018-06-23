@@ -20,9 +20,14 @@
             <h3>Chủ Đề : @Model.ChuDe.TenChuDe</h3>
             <h3>Nhà Xuất Bản : @Model.NhaXuatBan.TenNXB</h3>
             <div class="price-boxspl"> Giá Bán : @Model.GiaBan VNĐ</div>
-            <button class="btn btn-danger" title="Mua Hàng">
-                <span>Mua Hàng </span>
-            </button>
+            <br/>
+            @using (Html.BeginForm("ThemGioHang", "GioHang", new { @MaSP = Model.MaSach, @strUrl = Request.Url.ToString() }))
+            {
+                <button class="btn btn-danger" title="Mua Hàng">
+                    <span>Mua Hàng </span>
+                </button>
+            }
+            
         </div>
     </div>
     <div>
