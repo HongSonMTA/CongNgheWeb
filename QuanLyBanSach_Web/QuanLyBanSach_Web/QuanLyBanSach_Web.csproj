@@ -271,6 +271,9 @@
     <Content Include="AnhBia\TrenDuongBang.jpg" />
     <Content Include="AnhBia\TrinhPhucTiengAnh.jpg" />
     <Content Include="AnhBia\VatLy12.jpg" />
+    <Content Include="Content\DangNhap\index.html" />
+    <Content Include="Content\DangNhap\license.txt" />
+    <Content Include="Content\DangNhap\README.txt" />
     <Content Include="Content\NguoiDung\NguoiDungcss\NguoiDungCss.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -390,6 +393,9 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\Admin\css\" />
     <Folder Include="Content\Admin\js\" />
+    <Folder Include="Content\DangNhap\css\" />
+    <Folder Include="Content\DangNhap\js\" />
+    <Folder Include="Content\DangNhap\less\" />
     <Folder Include="Content\NguoiDung\css\" />
     <Folder Include="Content\NguoiDung\images\" />
     <Folder Include="Content\NguoiDung\js\" />
