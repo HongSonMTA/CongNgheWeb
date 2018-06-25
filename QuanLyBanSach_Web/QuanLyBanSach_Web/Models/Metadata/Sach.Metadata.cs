@@ -45,6 +45,9 @@ namespace QuanLyBanSach_Web.Models.Data
             [Display(Name = "Nhà xuất bản ")]//Thuộc tính Display dùng để đặt tên lại cho cột
             public Nullable<int> MaNXB { get; set; }
 
+            [Display(Name = "Mã Tác Giả ")]//Thuộc tính Display dùng để đặt tên lại cho cột
+            public Nullable<int> MaTG { get; set; }
+
             [Display(Name = "Trạng Thái ")]//Thuộc tính Display dùng để đặt tên lại cho cột
             [Required(ErrorMessage = "Vui lòng nhập dữ liệu cho trường này.")] //Kiểm tra rổng
             public Nullable<int> TrangThai { get; set; }

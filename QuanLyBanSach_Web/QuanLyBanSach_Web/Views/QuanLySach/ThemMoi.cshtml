@@ -50,7 +50,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.SoLuongTon, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.GiaBan, new { @class = "form-control" })
+                        @Html.EditorFor(model => model.SoLuongTon, new { @class = "form-control" })
                         @Html.ValidationMessageFor(model => model.SoLuongTon, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -69,6 +69,13 @@
                     </div>
                 </div>
             <br />    
+            <div class="form-group">
+                @Html.LabelFor(model => model.MaTG, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("MaTG")
+                </div>
+            </div>
+            <br />
                 <div class="form-group">
                     @Html.LabelFor(model => model.TrangThai, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
@@ -76,18 +83,19 @@
                         @Html.ValidationMessageFor(model => model.TrangThai, "", new { @class = "text-danger" })
                     </div>
                 </div>
-            <br />
             <div class="form-group">
                 @Html.LabelFor(model => model.MoTa, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    <textarea name="Mota"> </textarea>
+                    @Html.EditorFor(model => model.MoTa, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.MoTa, "", new { @class = "text-danger" })
                 </div>
             </div>
+
             <br />    
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
                         <input type="submit" value="Thêm Mới" class="btn btn-primary" />
-                        @Html.ActionLink("Back to List", "Index",null, new { @class = "btn btn-warning" })
+                        @Html.ActionLink("Trở Về", "Index",null, new { @class = "btn btn-warning" })
                     </div>
                 </div>
             </div>
@@ -125,6 +133,16 @@
         border: 1px solid ;
     }
     #MaChuDe{
+        height:35px;
+        width : 300px;
+        border: 1px solid ;
+    }
+        #MaTG{
+        height:35px;
+        width : 300px;
+        border: 1px solid ;
+    }
+     #MoTa{
         height:35px;
         width : 300px;
         border: 1px solid ;

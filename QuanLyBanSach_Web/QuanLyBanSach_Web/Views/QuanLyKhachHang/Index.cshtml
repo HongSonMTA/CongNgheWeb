@@ -1,0 +1,73 @@
+﻿@using PagedList.Mvc
+@using PagedList
+
+@model PagedList<QuanLyBanSach_Web.Models.Data.KhachHang>
+@{ 
+    ViewBag.Title = "Index";
+    Layout = "~/Views/LayOut/AdminLayOut.cshtml";
+}
+@using (Html.BeginForm("TimKiem", "QuanLyKhachHang", FormMethod.Post))
+{
+    <input class="form-control form-control-lg" name="txtgiatri" type="text" placeholder="Nhập Từ Khóa Cần Tìm...">
+}
+<br />
+<br />
+<h2>Danh Sách Khách Hàng</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().MaKH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().TenKH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().TaiKhoan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().GioiTinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().SDT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().NgaySinh)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenKH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TaiKhoan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GioiTinh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SDT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgaySinh)
+        </td>
+        <td>
+            @Html.ActionLink("Hiển Thị", "HienThi", new { @MaKH = item.MaKH }, new { @class = "btn btn-warning" })
+            @Html.ActionLink("Xóa", "Xoa", new { @MaKH = item.MaKH }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/ @Model.PageCount
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+</div>

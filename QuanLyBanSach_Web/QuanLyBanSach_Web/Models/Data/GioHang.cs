@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using QuanLyBanSach_Web.Models;
 
 namespace QuanLyBanSach_Web.Models.Data
 {

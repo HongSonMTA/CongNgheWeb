@@ -13,6 +13,8 @@
     <script src="~/tinymce/js/tinymce/tinymce.min.js"></script>
     <script>tinymce.init({ selector: 'textarea' });</script>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="~/Content/Admin/css/Admin.css" rel="stylesheet" />
 </head>
 <body class="app sidebar-mini rtl">
     <!-- Navbar-->
@@ -21,16 +23,6 @@
         <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
         <!-- Navbar Right Menu-->
         <ul class="app-nav">
-            <li class="app-search">
-                <div class="styled-select">
-                    <select>
-                        <option value="TheoMa"  >Theo Mã</option>
-                        <option value="TheoTen" >Theo Tên</option>
-                    </select>
-                </div>
-                <input class="app-search__input" type="search" placeholder="Nhập Nội Dung Cần Tìm......">
-                <button class="app-search__button"><i class="fa fa-search"></i></button>
-            </li>
             <!--Notification Menu-->
             <li class="dropdown">
                 <a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Show notifications"><i class="fa fa-bell-o fa-lg"></i></a>
@@ -118,10 +110,14 @@
             </div>
         </div>
         <ul class="app-menu">
+            <li><a class="app-menu__item" href="@Url.Action("Index","Home")"><i class="fa fa-address-card"></i><span class="app-menu__label">Trang Chủ</span></a></li>
             <li><a class="app-menu__item" href="@Url.Action("Index","QuanLySach")"><i class="fa fa-book"></i><span class="app-menu__label">Quản Lý Sách</span></a></li>
             <li><a class="app-menu__item" href="@Url.Action("Index","QuanLyChuDe")"><i class="fa fa-address-book"></i></i><span class="app-menu__label">Quản Lý Chủ Đề</span></a></li>
             <li><a class="app-menu__item" href="@Url.Action("Index","QuanLyNhaXuatBan")"><i class="fa fa-at"></i><span class="app-menu__label">Quản Lý Nhà Xuất Bản</span></a></li>
             <li><a class="app-menu__item" href="@Url.Action("Index","QuanLyTacGia")"><i class="fa fa-address-card"></i><span class="app-menu__label">Quản Lý Tác Giả</span></a></li>
+            <li><a class="app-menu__item" href="@Url.Action("Index","QuanLyKhachHang")"><i class="fa fa-address-card"></i><span class="app-menu__label">Quản Lý Khách Hàng</span></a></li>
+            <li><a class="app-menu__item" href="@Url.Action("Index","QuanLyDonHang")"><i class="fa fa-address-card"></i><span class="app-menu__label">Quản Lý Đơn Hàng</span></a></li>
+            <li><a class="app-menu__item" href="@Url.Action("Index","QuanLyTaiKhoan")"><i class="fa fa-address-card"></i><span class="app-menu__label">Quản Lý Tài Khoản</span></a></li>
         </ul>
     </aside>
     <main class="app-content">

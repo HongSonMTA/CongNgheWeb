@@ -26,16 +26,19 @@ namespace QuanLyBanSach_Web.Controllers
         {
             //Đưa dữ liệu vào dropdownlist
             ViewBag.MaChuDe = new SelectList(kn.ChuDes.ToList().OrderBy(n => n.TenChuDe), "MaChuDe", "TenChuDe");
-            ViewBag.MaNXB = new SelectList(kn.NhaXuatBans.ToList().OrderBy(n => n.TenNXB), "MaNXB", "TenNXB"); ;
+            ViewBag.MaNXB = new SelectList(kn.NhaXuatBans.ToList().OrderBy(n => n.TenNXB), "MaNXB", "TenNXB");
+            ViewBag.MaTG = new SelectList(kn.TacGias.ToList().OrderBy(n => n.TenTG), "MaTG", "TenTG");
+
             return View();
         }
         [HttpPost]
-
         public ActionResult ThemMoi(Sach sach, HttpPostedFileBase fileUpload)
         {
             ViewBag.MaChuDe = new SelectList(kn.ChuDes.ToList().OrderBy(n => n.TenChuDe), "MaChuDe", "TenChuDe");
-            ViewBag.MaNXB = new SelectList(kn.NhaXuatBans.ToList().OrderBy(n => n.TenNXB), "MaNXB", "TenNXB"); ;
-            if(fileUpload == null){
+            ViewBag.MaNXB = new SelectList(kn.NhaXuatBans.ToList().OrderBy(n => n.TenNXB), "MaNXB", "TenNXB");
+            ViewBag.MaTG = new SelectList(kn.TacGias.ToList().OrderBy(n => n.TenTG), "MaTG", "TenTG");
+
+            if (fileUpload == null){
                 ViewBag.ThongBao = "Chọn Hình Ảnh";
             }
             if (ModelState.IsValid)
@@ -62,7 +65,9 @@ namespace QuanLyBanSach_Web.Controllers
         public ActionResult ChinhSua(int MaSach)
         {
             ViewBag.MaChuDe = new SelectList(kn.ChuDes.ToList().OrderBy(n => n.TenChuDe), "MaChuDe", "TenChuDe");
-            ViewBag.MaNXB = new SelectList(kn.NhaXuatBans.ToList().OrderBy(n => n.TenNXB), "MaNXB", "TenNXB"); ;
+            ViewBag.MaNXB = new SelectList(kn.NhaXuatBans.ToList().OrderBy(n => n.TenNXB), "MaNXB", "TenNXB");
+            ViewBag.MaTG = new SelectList(kn.TacGias.ToList().OrderBy(n => n.TenTG), "MaTG", "TenTG");
+
             //Lấy ra đối tượng sách theo mã 
             Sach sach = kn.Saches.SingleOrDefault(n => n.MaSach == MaSach);
             if (sach == null)
@@ -77,7 +82,9 @@ namespace QuanLyBanSach_Web.Controllers
         public ActionResult ChinhSua(Sach sach, HttpPostedFileBase fileUpload)
         {
             ViewBag.MaChuDe = new SelectList(kn.ChuDes.ToList().OrderBy(n => n.TenChuDe), "MaChuDe", "TenChuDe");
-            ViewBag.MaNXB = new SelectList(kn.NhaXuatBans.ToList().OrderBy(n => n.TenNXB), "MaNXB", "TenNXB"); ;
+            ViewBag.MaNXB = new SelectList(kn.NhaXuatBans.ToList().OrderBy(n => n.TenNXB), "MaNXB", "TenNXB");
+            ViewBag.MaTG = new SelectList(kn.TacGias.ToList().OrderBy(n => n.TenTG), "MaTG", "TenTG"); 
+
             if (fileUpload == null)
             {
                 ViewBag.ThongBao = "Chọn Hình Ảnh";
@@ -146,6 +153,14 @@ namespace QuanLyBanSach_Web.Controllers
             kn.SaveChanges();
             return RedirectToAction("Index");
 
+        }
+        public ActionResult TimKiem(FormCollection fc, int? page)
+        {
+            int pagenumber = (page ?? 1);
+            int pagesize = 1;
+            string giatri = fc["txtgiatri"];
+            List<Sach> Sach = kn.Saches.Where(a => a.TenSach.Contains(giatri)).ToList();
+            return View(Sach.OrderBy(a => a.TenSach).ToPagedList(pagenumber, pagesize));
         }
     }
 }

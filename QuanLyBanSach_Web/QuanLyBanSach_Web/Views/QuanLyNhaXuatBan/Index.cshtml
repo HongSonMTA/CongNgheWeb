@@ -7,7 +7,12 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/LayOut/AdminLayOut.cshtml";
 }
-
+@using (Html.BeginForm("TimKiem", "QuanLyNhaXuatBan", FormMethod.Post))
+{
+    <input class="form-control form-control-lg" name="txtgiatri" type="text" placeholder="Nhập Từ Khóa Cần Tìm...">
+}
+<br />
+<br />
 <p>
     @Html.ActionLink("Thêm Mới NXB", "ThemMoi", null, new { @class = "btn btn-primary" })
 </p>

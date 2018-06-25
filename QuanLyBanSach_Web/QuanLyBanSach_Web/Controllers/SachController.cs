@@ -4,12 +4,21 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using QuanLyBanSach_Web.Models.Data;
+using PagedList;
+using System.IO;
+
 namespace QuanLyBanSach_Web.Controllers
 {
     public class SachController : Controller
     {
         // GET: Sach
         KetNoi kn = new KetNoi();
+        public ActionResult AllSach(int? page)
+        {
+            int PageNumber = (page ?? 1);
+            int PageSize = 16;
+            return View(kn.Saches.ToList().ToPagedList(PageNumber, PageSize));
+        }
         public PartialViewResult SachMoiPartial( )
         {
             var ListSachMoi = kn.Saches.Where(n => n.TrangThai == 1).Take(7).ToList();

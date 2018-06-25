@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using QuanLyBanSach_Web.Models.Data;
+using PagedList;
+using System.IO;
 namespace QuanLyBanSach_Web.Controllers
 {
     public class ChuDeController : Controller
@@ -14,8 +16,10 @@ namespace QuanLyBanSach_Web.Controllers
         {
             return PartialView(kn.ChuDes.Take(6).ToList());
         }
-        public ViewResult SachTheoChuDe(int MaChude = 0)
+        public ViewResult SachTheoChuDe(int? page, int MaChude = 0)
         {
+            int pageNumber = (page ?? 1);
+            int pageSize = 9;
             ChuDe Cd = kn.ChuDes.SingleOrDefault(n => n.MaChuDe == MaChude);
             if (Cd == null)
             {
@@ -27,7 +31,7 @@ namespace QuanLyBanSach_Web.Controllers
             {
                 ViewBag.Sach = "Không Có Cuốn Sách Nào";
             }
-            return View(List);
+            return View(List.ToPagedList(pageNumber, pageSize));
         }
         public ActionResult DanhMucChuDe()
         {

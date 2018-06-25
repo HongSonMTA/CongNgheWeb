@@ -5,7 +5,7 @@
     @foreach (var Item in Model)
     {
         <ul class="mnboxl">
-            <li><a href="">@Item.TenNXB</a></li>
+            <li><a href="@Url.Action("SachTheoNXB","NhaXuatBan",new { @MaNXB = Item.MaNXB })">@Item.TenNXB</a></li>
         </ul>
     }
 

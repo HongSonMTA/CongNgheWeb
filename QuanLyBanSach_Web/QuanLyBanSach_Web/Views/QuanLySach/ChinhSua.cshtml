@@ -68,6 +68,12 @@
                 @Html.DropDownList("MaChuDe")
             </div>
         </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaTG, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("MaTG")
+            </div>
+        </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.TrangThai, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -79,7 +85,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.MoTa, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <textarea name="Mota">@Model.MoTa</textarea>
+                <textarea name="MoTa">@Model.MoTa</textarea>
             </div>
         </div>
 
@@ -91,3 +97,58 @@
         </div>
     </div>
 }
+<style>
+    #TenSach {
+        height: 35px;
+        width: 300px;
+        border: 1px solid;
+    }
+
+    #NgayCapNhat {
+        height: 35px;
+        width: 300px;
+        border: 1px solid;
+    }
+
+    #GiaBan {
+        height: 35px;
+        width: 300px;
+        border: 1px solid;
+    }
+
+    #SoLuongTon {
+        height: 35px;
+        width: 300px;
+        border: 1px solid;
+    }
+
+    #TrangThai {
+        height: 35px;
+        width: 300px;
+        border: 1px solid;
+    }
+
+    #MaNXB {
+        height: 35px;
+        width: 300px;
+        border: 1px solid;
+    }
+
+    #MaChuDe {
+        height: 35px;
+        width: 300px;
+        border: 1px solid;
+    }
+
+    #MaTG {
+        height: 35px;
+        width: 300px;
+        border: 1px solid;
+    }
+
+    #MoTa {
+        height: 35px;
+        width: 300px;
+        border: 1px solid;
+    }
+</style>

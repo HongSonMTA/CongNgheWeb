@@ -1,0 +1,92 @@
+﻿@model QuanLyBanSach_Web.Models.Data.KhachHang
+<title>Đăng ký tài khoản</title>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<style>
+    body {
+        background-color: #eee;
+    }
+
+    *[role="form"] {
+        max-width: 530px;
+        padding: 15px;
+        margin: 0 auto;
+        background-color: #fff;
+        border-radius: 0.3em;
+    }
+
+        *[role="form"] h2 {
+            margin-left: 5em;
+            margin-bottom: 1em;
+        }
+</style>
+<!------ Include the above in your HEAD tag ---------->
+<div class="container">
+    <form class="form-horizontal" role="form" method="post">
+        <h2>Đăng ký tài khoản</h2>
+        <div class="form-group">
+            <label for="firstName" class="col-sm-3 control-label">Họ và tên</label>
+            <div class="col-sm-9">
+                <input type="text" name="firstName" id="firstName" placeholder="VD : Nguyễn Thị B" class="form-control" autofocus>
+                @Html.ValidationMessageFor(model => model.TenKH, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="ngaysinh" class="col-sm-3 control-label">Ngày sinh</label>
+            <div class="col-sm-9">
+                <input type="date" name="ngaysinh" id="ngaysinh" placeholder="VD : 25/07/1997" class="form-control" autofocus>
+                @Html.ValidationMessageFor(model => model.NgaySinh, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3">Giới tính</label>
+            <div class="col-sm-9">
+                <select class="form-control" id="gioitinh" name="gioitinh">
+                    <option>Nam</option>
+                    <option>Nữ</option>
+                    <option>Khác</option>
+                </select>
+            </div>
+        </div> <!-- /.form-group -->
+        <div class="form-group">
+            <label for="tel" class="col-sm-3 control-label">Số điện thoại</label>
+            <div class="col-sm-9">
+                <input type="text" name="tel" id="tel" placeholder="VD : 0981778655" class="form-control" autofocus>
+                @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email" class="col-sm-3 control-label">Email</label>
+            <div class="col-sm-9">
+                <input type="email" name="email" id="email" placeholder="VD : abc@gmail.com" class="form-control" autofocus>
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="diachi" class="col-sm-3 control-label">Địa chỉ</label>
+            <div class="col-sm-9">
+                <input type="text" name="diachi" id="diachi" tabindex="1" class="form-control" placeholder="Địa chỉ" autofocus>
+                @Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="username" class="col-sm-3 control-label">Tên đăng nhập</label>
+            <div class="col-sm-9">
+                <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Tên đăng nhập" autofocus>
+                @Html.ValidationMessageFor(model => model.TaiKhoan, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password" class="col-sm-3 control-label">Mật khẩu</label>
+            <div class="col-sm-9">
+                <input type="password" name="password" id="password" tabindex="1" class="form-control" placeholder="Mật khẩu" autofocus>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-9 col-sm-offset-3">
+                <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Đăng ký">
+            </div>
+        </div>
+    </form> <!-- /form -->
+</div> <!-- ./container -->

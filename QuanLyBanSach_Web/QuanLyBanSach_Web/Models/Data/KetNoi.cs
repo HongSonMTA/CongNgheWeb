@@ -8,18 +8,18 @@ namespace QuanLyBanSach_Web.Models.Data
     public partial class KetNoi : DbContext
     {
         public KetNoi()
-            : base("name=KetNoi2")
+            : base("name=KetNoi1")
         {
         }
 
         public virtual DbSet<ChiTietDonHang> ChiTietDonHangs { get; set; }
-        public virtual DbSet<ChiTietTacGia> ChiTietTacGias { get; set; }
         public virtual DbSet<ChuDe> ChuDes { get; set; }
         public virtual DbSet<DonHang> DonHangs { get; set; }
         public virtual DbSet<KhachHang> KhachHangs { get; set; }
         public virtual DbSet<NhaXuatBan> NhaXuatBans { get; set; }
         public virtual DbSet<Sach> Saches { get; set; }
         public virtual DbSet<TacGia> TacGias { get; set; }
+        public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -29,19 +29,15 @@ namespace QuanLyBanSach_Web.Models.Data
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<KhachHang>()
-                .Property(e => e.TaiKhoan)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<KhachHang>()
-                .Property(e => e.MatKhau)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<KhachHang>()
                 .Property(e => e.Email)
                 .IsUnicode(false);
 
             modelBuilder.Entity<KhachHang>()
                 .Property(e => e.SDT)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<KhachHang>()
+                .Property(e => e.TaiKhoan)
                 .IsUnicode(false);
 
             modelBuilder.Entity<NhaXuatBan>()
@@ -57,19 +53,22 @@ namespace QuanLyBanSach_Web.Models.Data
                 .WithRequired(e => e.Sach)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Sach>()
-                .HasMany(e => e.ChiTietTacGias)
-                .WithRequired(e => e.Sach)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<TacGia>()
                 .Property(e => e.SDT)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<TacGia>()
-                .HasMany(e => e.ChiTietTacGias)
-                .WithRequired(e => e.TacGia)
-                .WillCascadeOnDelete(false);
+            modelBuilder.Entity<TaiKhoan>()
+                .Property(e => e.TaiKhoan1)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<TaiKhoan>()
+                .Property(e => e.MatKhau)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<TaiKhoan>()
+                .HasMany(e => e.KhachHangs)
+                .WithOptional(e => e.TaiKhoan1)
+                .HasForeignKey(e => e.TaiKhoan);
         }
     }
 }

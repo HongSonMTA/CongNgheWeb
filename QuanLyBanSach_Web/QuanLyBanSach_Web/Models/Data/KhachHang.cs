@@ -22,12 +22,6 @@ namespace QuanLyBanSach_Web.Models.Data
         public string TenKH { get; set; }
 
         [StringLength(50)]
-        public string TaiKhoan { get; set; }
-
-        [StringLength(50)]
-        public string MatKhau { get; set; }
-
-        [StringLength(50)]
         public string Email { get; set; }
 
         [StringLength(5)]
@@ -39,7 +33,14 @@ namespace QuanLyBanSach_Web.Models.Data
         [Column(TypeName = "date")]
         public DateTime? NgaySinh { get; set; }
 
+        [StringLength(30)]
+        public string TaiKhoan { get; set; }
+
+        public string DiaChi { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DonHang> DonHangs { get; set; }
+
+        public virtual TaiKhoan TaiKhoan1 { get; set; }
     }
 }

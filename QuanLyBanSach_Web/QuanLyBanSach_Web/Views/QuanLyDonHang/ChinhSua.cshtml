@@ -1,0 +1,105 @@
+﻿@model QuanLyBanSach_Web.Models.Data.DonHang
+
+@{
+    ViewBag.Title = "ChinhSua";
+    Layout = "~/Views/LayOut/AdminLayOut.cshtml";
+}
+
+<h2>Chỉnh Sửa Đơn Hàng</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>DonHang</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.MaDH)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DaThanhToan, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DaThanhToan, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DaThanhToan, "", new { @class = "text-danger" })
+                <div style="color:red">(1) Đã Thanh Toán , (2) Chưa Thanh Toán</div>
+            </div>
+        </div>
+        
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TinhTrangDH, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TinhTrangDH, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TinhTrangDH, "", new { @class = "text-danger" }) 
+                <div style="color:red">(1) Đang Xử Lý , (2) Đang Giao Hàng,(3) Giao Thành Công</div>
+            </div>
+        </div>
+       
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NgayDat, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NgayDat, new { htmlAttributes = new { @class = "form-control", @ReadOnly = "ReadOnly" } })
+                @Html.ValidationMessageFor(model => model.NgayDat, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NgayGiao, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NgayGiao, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NgayGiao, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaKH, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("MaKH", @ReadOnly = "ReadOnly")
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-success" />
+                @Html.ActionLink("Trở về", "Index", null, new { @class = "btn btn-warning" })
+            </div>
+        </div>
+    </div>
+}
+<style type="text/css">
+    #NgayGiao {
+        width: 500px;
+        height: 30px;
+        border: 3px ridge ;
+    }
+
+    #NgayDat {
+        width: 500px;
+        height: 30px;
+        border: 3px ridge ;
+    }
+
+    #DaThanhToan {
+        width: 500px;
+        height: 30px;
+        border: 3px ridge;
+    }
+
+    #TinhTrangGiaoHang {
+        width: 500px;
+        height: 30px;
+        border: 3px ridge;
+    }
+        #TinhTrangDH {
+        width: 500px;
+        height: 30px;
+        border: 3px ridge;
+    }
+    #MaKH {
+        width: 500px;
+        height: 30px;
+        border: 3px ridge ;
+    }
+</style>

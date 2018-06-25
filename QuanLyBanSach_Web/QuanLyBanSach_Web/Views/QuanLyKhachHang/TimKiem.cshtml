@@ -1,0 +1,76 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model PagedList<QuanLyBanSach_Web.Models.Data.KhachHang>
+
+@{
+    ViewBag.Title = "TimKiem";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+    if (Session["Username"] == null)
+    {
+        Response.Redirect("~/Login/Login");
+    }
+}
+
+@using (Html.BeginForm("TimKiem", "QuanLyKhachHang", FormMethod.Post))
+{
+    <input class="form-control form-control-lg" name="txtgiatri" type="text" placeholder="Nhập họ tên khách hàng...">
+}
+<br />
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>
+            Họ và tên
+        </th>
+        <th>
+            Ngày sinh
+        </th>
+        <th>
+            Giới tính
+        </th>
+        <th>
+            Điện thoại
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Địa chỉ
+        </th>
+        <th>
+            Chức năng
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenKH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgaySinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GioiTinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SDT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaChi)
+            </td>
+            <td>
+                @Html.ActionLink("Hiển thị", "HienThi", new { @MaKH = item.MaKH }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Xóa", "Xoa", new { @MaKH = item.MaKH }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/ @Model.PageCount
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("TimKiem", new { page = page }))
+</div>

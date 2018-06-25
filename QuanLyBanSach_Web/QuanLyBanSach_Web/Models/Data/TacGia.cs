@@ -12,7 +12,7 @@ namespace QuanLyBanSach_Web.Models.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TacGia()
         {
-            ChiTietTacGias = new HashSet<ChiTietTacGia>();
+            Saches = new HashSet<Sach>();
         }
 
         [Key]
@@ -30,6 +30,6 @@ namespace QuanLyBanSach_Web.Models.Data
         public string SDT { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChiTietTacGia> ChiTietTacGias { get; set; }
+        public virtual ICollection<Sach> Saches { get; set; }
     }
 }

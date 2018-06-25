@@ -44,9 +44,9 @@
                 </div>
                 <div class="DangKyDangNhap">
                     <i class="fa fa-sign-in"></i>
-                    @Html.ActionLink("Đăng Ký  ", "DangKy", "KhachHang", null, htmlAttributes: new { @class = "DangKy" })
+                    @Html.ActionLink("Đăng Ký  ", "DangKy", "TaiKhoan", null, htmlAttributes: new { @class = "DangKy" })
                     <i class="fa fa-unlock"></i>
-                    @Html.ActionLink("Đăng Nhập ", "DangNhap", "KhachHang", null, htmlAttributes: new { @class = "DangNhap" })
+                    @Html.ActionLink("Đăng Nhập ", "Loginkh", "Login", null, htmlAttributes: new { @class = "DangNhap" })
                 </div>
             </div>
         </div>
@@ -59,10 +59,11 @@
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-4">
                     <div id="search">
-                        <form action="" method="post">
-                            <input type="text" name="txt_search" placeholder="Nhập Từ Cần Tìm..." />
-                            <button type="submit" name="btn_search">Tìm kiếm</i></button>
-                        </form>
+                    @using (Html.BeginForm("KetQuaTimKiem", "TimKiem", FormMethod.Post))
+                    {                 
+                           <input type="text" name="txt_search" placeholder="Nhập Từ Cần Tìm..." />
+                                <button type="submit" name="btn_search">Tìm kiếm</button>
+                    }
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-4">
@@ -79,7 +80,7 @@
                 <ul class="x1">
                     <li><a href="@Url.Action("Index","Home")">Trang chủ</a></li>
                     <li>
-                        <a href="">Sách</a>                     
+                        <a href="@Url.Action("AllSach","Sach")">Sách</a>                     
                     </li>
                     <li><a href="">Giới thiệu</a></li>
                     <li><a href="">Tin tức</a></li>
@@ -199,6 +200,9 @@
                     </div>
                 </div>             
 </section>
+            <div style="color:lightgreen">
+                <li><a href="@Url.Action("AllSach","Sach")">Xem Thêm Tất Cả</a></li>
+            </div>
     </div>
     </div>
     <div id="MainDuoi">
@@ -207,7 +211,7 @@
                 <div class="f1">
                     <div class="col-xs-12 col-sm-3">
                         <div class="tit-boxmain">
-                            <h3><span>Phụ kiện Bijing</span></h3>
+                            <h3><span>Sách COMMO</span></h3>
                         </div>
                         <div class="ct-boxft1">
                             <p><span>Chúng tôi chỉ bán hàng chính hãng</span></p>

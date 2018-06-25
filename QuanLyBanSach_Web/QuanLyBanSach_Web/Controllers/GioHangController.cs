@@ -136,9 +136,9 @@ namespace QuanLyBanSach_Web.Controllers
         public ActionResult DatHang()
         {
             //Kiểm tra đăng đăng nhập
-            if (Session["TaiKhoan"] == null || Session["TaiKhoan"].ToString() == "")
+            if (Session["Username"] == null || Session["Username"].ToString() == "")
             {
-                return RedirectToAction("DangNhap", "KhachHang");
+                return RedirectToAction("Loginkh", "Login");
             }
             //Kiểm tra giỏ hàng
             if (Session["GioHang"] == null)
@@ -146,24 +146,28 @@ namespace QuanLyBanSach_Web.Controllers
                 RedirectToAction("Index", "Home");
             }
             //Thêm đơn hàng
-            DonHang ddh = new DonHang();
-            KhachHang kh = (KhachHang)Session["TaiKhoan"];
+
+            DonHang dh = new DonHang();
             List<GioHang> gh = LayGioHang();
-            ddh.MaKH = kh.MaKH;
-            ddh.NgayDat = DateTime.Now;
-            kn.DonHangs.Add(ddh);
+            string makh = Session["Username"].ToString();
+            KhachHang kh = kn.KhachHangs.SingleOrDefault(a => a.TaiKhoan == makh);
+            dh.MaKH = kh.MaKH;
+            dh.NgayDat = DateTime.Now;
+            dh.TinhTrangDH = 1;
+            kn.DonHangs.Add(dh);
             kn.SaveChanges();
-            //Thêm chi tiết đơn hàng
+
             foreach (var item in gh)
             {
-                ChiTietDonHang ctDH = new ChiTietDonHang();
-                ctDH.MaDH = ddh.MaDH;
-                ctDH.MaSach = item.iMaSach;
-                ctDH.SoLuong = item.iSoLuong;
-                ctDH.DonGia = (int)item.dDonGia;
-                kn.ChiTietDonHangs.Add(ctDH);
+                ChiTietDonHang ct = new ChiTietDonHang();
+                ct.MaDH = dh.MaDH;
+                ct.MaSach = item.iMaSach;
+                ct.SoLuong = item.iSoLuong;
+                ct.DonGia = (int)item.dDonGia;
+                kn.ChiTietDonHangs.Add(ct);
             }
             kn.SaveChanges();
+            Session["GioHang"] = null;
             return RedirectToAction("Index", "Home");
         }
         #endregion

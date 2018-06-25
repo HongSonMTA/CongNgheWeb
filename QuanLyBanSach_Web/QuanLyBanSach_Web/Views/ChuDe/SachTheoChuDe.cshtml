@@ -1,0 +1,54 @@
+﻿@using PagedList.Mvc
+@using PagedList
+
+@model PagedList<QuanLyBanSach_Web.Models.Data.Sach>
+@*Css cho trang chủ ở trong thư mục content*@
+@{
+    ViewBag.Title = "Sách theo chủ đề";
+    Layout = "~/Views/LayOut/NguoiDungLayOut.cshtml";
+}
+@*Ẩn div chủ đề và div nhà xuất bản bên dưới*@
+<style>
+    #home {
+        display: none;
+    }
+</style>
+<hr />
+<h2 style="margin-left:2%;font-weight:normal;color:black">Danh mục chủ đề</h2>
+<hr />
+<div style="clear:both"></div>
+<div id="divBody" style="width:100%">
+    @*Hiển thị danh mục chủ đề*@
+    </div>
+        <div class="boxmain">
+            <div class="ct-boxmain row m0">
+                @foreach (var Item in Model)
+                {
+                    <div class="col-xs-6 col-sm-4 col-md-3 p5">
+                        <div class="boxsp">
+                            <div class="imgsp">
+                                <a href="@Url.Action("ChiTietSach","Sach", new { @Masach = Item.MaSach })"><img class="imgproduct" src="@Url.Content("~/AnhBia/" + Item.AnhBia)"></a>
+                            </div>
+                            <div class="namesp">
+                                <a href="">@Item.TenSach</a>
+                            </div>
+                            <div class="pricesp">@Item.GiaBan VNĐ</div>
+                            <div class="button-hd">
+                                <a href="@Url.Action("ThemGioHang", "GioHang", new { @MaSP = Item.MaSach, @strUrl = Request.Url.ToString() })"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                                <a href="@Url.Action("ChiTietSach","Sach", new { @Masach = Item.MaSach })"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+<div style="clear:both"></div>
+            Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/ @Model.PageCount
+            <div class="MenuTrang">
+                @Html.PagedListPager(Model, page => Url.Action("SachTheoChuDe", new { page = page }))
+            </div>
+            <style>
+                .imgsp {
+                    padding-left: 10%;
+                }
+            </style>

@@ -7,6 +7,12 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/LayOut/AdminLayOut.cshtml";
 }
+@using (Html.BeginForm("TimKiem", "QuanLySach", FormMethod.Post))
+{
+    <input class="form-control form-control-lg" name="txtgiatri" type="text" placeholder="Nhập Từ Khóa Cần Tìm...">
+}
+
+
 <p>
     @Html.ActionLink("Thêm Mới Sách", "ThemMoi",null, new { @class = "btn btn-primary" })
 </p>
@@ -39,6 +45,9 @@
         <th>
             @Html.DisplayNameFor(model => model.First().MaChuDe)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().MaTG)
+        </th>
         <th></th>
     </tr>
 
@@ -70,6 +79,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ChuDe.TenChuDe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TacGia.TenTG)
         </td>
         <td>
             @Html.ActionLink("Chỉnh Sửa", "ChinhSua", new { @MaSach = item.MaSach },new {@class = "btn btn-info" }) 

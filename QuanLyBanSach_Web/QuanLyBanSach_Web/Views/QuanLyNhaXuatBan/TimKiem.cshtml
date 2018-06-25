@@ -1,0 +1,66 @@
+﻿@using PagedList.Mvc
+@using PagedList
+
+@model PagedList<QuanLyBanSach_Web.Models.Data.NhaXuatBan>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/LayOut/AdminLayOut.cshtml";
+}
+@using (Html.BeginForm("TimKiem", "QuanLyNhaXuatBan", FormMethod.Post))
+{
+    <input class="form-control form-control-lg" name="txtgiatri" type="text" placeholder="Nhập Từ Khóa Cần Tìm...">
+}
+<br />
+<br />
+<p>
+    @Html.ActionLink("Thêm Mới NXB", "ThemMoi", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().MaNXB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().TenNXB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().DiaChi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().SDT)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaNXB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenNXB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaChi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SDT)
+            </td>
+            <td>
+                @Html.ActionLink("Chỉnh Sửa", "ChinhSuaNXB", new { @MaNXB = item.MaNXB }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Hiển Thị", "HienThi", new { @MaNXB = item.MaNXB }, new { @class = "btn btn-warning" })
+                @Html.ActionLink("Xóa", "Xoa", new { @MaNXB = item.MaNXB }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+</table>
+
+@* Tạo link liên kết các trang*@
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/ @Model.PageCount
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("TimKiem", new { page = page }))
+</div>
+
+

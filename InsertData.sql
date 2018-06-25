@@ -12,6 +12,15 @@ GioiTinh NVARCHAR(5) CHECK (GioiTinh IN (N'Nam',N'Nữ')),
 SDT VARCHAR(15),
 NgaySinh DATE 
 )
+ALTER TABLE KhachHang DROP COLUMN MatKhau
+ALTER TABLE dbo.KhachHang ADD  TaiKhoan VARCHAR(30) REFERENCES TaiKhoan(TaiKhoan)
+ALTER TABLE dbo.Sach ADD MaTG INT REFERENCES dbo.TacGia(MaTG) 
+ALTER TABLE dbo.KhachHang ADD DiaChi NVARCHAR(MAX)
+CREATE TABLE TaiKhoan(
+TaiKhoan VARCHAR(30) PRIMARY KEY,
+MatKhau VARCHAR(30) ,
+PhanQuyen INT
+)
 GO
 CREATE TABLE ChuDe(
 MaChuDe INT PRIMARY KEY,
@@ -43,14 +52,6 @@ NgayCapNhat DATE,
 SoLuongTon INT,
 MaNXB INT REFERENCES dbo.NhaXuatBan(MaNXB),
 MaChuDe INT REFERENCES dbo.ChuDe(MaChuDe) 
-)
-GO
-CREATE TABLE ChiTietTacGia (
-MaTG INT REFERENCES dbo.TacGia(MaTG),
-MaSach INT REFERENCES dbo.Sach(MaSach),
-VaiTro NVARCHAR(50) ,
-ViTri NVARCHAR(50),
-PRIMARY KEY (MaTG,MaSach)
 )
 GO
 CREATE TABLE DonHang(

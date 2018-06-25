@@ -107,5 +107,13 @@ namespace QuanLyBanSach_Web.Controllers
             return RedirectToAction("Index");
 
         }
+        public ActionResult TimKiem(FormCollection fc, int? page)
+        {
+            int pagenumber = (page ?? 1);
+            int pagesize = 1;
+            string giatri = fc["txtgiatri"];
+            List<NhaXuatBan> NXB = kn.NhaXuatBans.Where(a => a.TenNXB.Contains(giatri)).ToList();
+            return View(NXB.OrderBy(a => a.TenNXB).ToPagedList(pagenumber, pagesize));
+        }
     }
 }

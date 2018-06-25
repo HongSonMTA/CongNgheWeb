@@ -102,6 +102,14 @@ namespace QuanLyBanSach_Web.Controllers
             return RedirectToAction("Index");
 
         }
+        public ActionResult TimKiem(FormCollection fc, int? page)
+        {
+            int pagenumber = (page ?? 1);
+            int pagesize = 1;
+            string giatri = fc["txtgiatri"];
+            List<ChuDe> CD = kn.ChuDes.Where(a => a.TenChuDe.Contains(giatri)).ToList();
+            return View(CD.OrderBy(a => a.TenChuDe).ToPagedList(pagenumber, pagesize));
+        }
 
     }
 }

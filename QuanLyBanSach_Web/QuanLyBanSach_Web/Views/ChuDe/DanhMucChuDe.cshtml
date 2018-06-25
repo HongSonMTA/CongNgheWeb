@@ -7,10 +7,15 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/LayOut/NguoiDungLayOut.cshtml";
 }
+<style>
+    #home{
+        display:none;
+    }
+</style>
     @foreach (var Item in Model)
     {
         <ul class="mnboxl">
-            <li><a href="">@Item.TenChuDe</a></li>
+            <li><a href="@Url.Action("SachTheoChuDe","ChuDe",new { @MaChuDe = Item.MaChuDe })">@Item.TenChuDe</a></li>
         </ul>
     }
 
